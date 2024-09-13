@@ -53,6 +53,8 @@ PRODUCT_PACKAGES += \
     libagm_pcm_plugin \
     libaudioroute.vendor \
     libbatterylistener \
+    libfmpal \
+    libhfp_pal \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
@@ -510,6 +512,10 @@ PRODUCT_COPY_FILES += \
 # Vendor service manager
 PRODUCT_PACKAGES += \
     vndservicemanager
+
+# Vendor libstdc++
+PRODUCT_PACKAGES += \
+    libstdc++_vendor
 
 # Verified Boot
 PRODUCT_COPY_FILES += \

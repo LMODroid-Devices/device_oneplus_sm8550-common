@@ -141,8 +141,6 @@ vendor/lib64/libcapiv2uvvendor.so
 vendor/lib64/libdsd2pcm.so
 vendor/lib64/libeai_fixed.so
 vendor/lib64/libeai_float.so
-vendor/lib64/libfmpal.so
-vendor/lib64/libhfp_pal.so
 vendor/lib64/liblistensoundmodel2vendor.so
 vendor/lib64/liblx-ar_util.so
 -vendor/lib64/liblx-osal.so
@@ -1066,7 +1064,6 @@ odm/lib64/libsnpe_loader.so
 odm/lib64/libsnpeml.so
 odm/lib64/libstblur_api.so
 odm/lib64/libstblur_capture_api.so
-odm/lib64/libstdc++.so
 odm/lib64/libstface_fd_api.so
 odm/lib64/libstfd_mobile_api.so
 odm/lib64/libthirdcapability.so
@@ -1680,7 +1677,6 @@ odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff|c8031f17
 odm/etc/init/vendor.oplus.hardware.biometrics.fingerprint@2.1-service.rc|fb6116702903de0122eb00af471481ef1a65fe32
 odm/etc/vintf/manifest/manifest_oplus_fingerprint.xml|78ca4f56ed1f5dd48c186718718fd9513629851e
 odm/lib64/libolc_vnd.so
-odm/lib64/vendor.oplus.hardware.biometrics.fingerprint@2.1.so
 odm/lib64/vendor.oplus.hardware.commondcs-V1-ndk.so
 odm/lib64/vendor.oplus.hardware.olc2-V1-ndk.so
 odm/lib64/vendor.oplus.hardware.touch-V1-ndk.so
@@ -2057,8 +2053,6 @@ odm/lib/libsn100u_fw.so:vendor/lib/libsn100u_fw.so
 
 # OSENSE
 odm/lib64/libosenseaidlhalclient.so
-odm/lib64/vendor.oplus.hardware.osense.client-V1-ndk.so
-vendor/lib64/vendor.oplus.hardware.osense.client-V1-ndk.so
 
 # OPLUS Performance
 odm/bin/hw/vendor-oplus-hardware-performance-V1-service
