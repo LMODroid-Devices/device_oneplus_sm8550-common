@@ -13,6 +13,8 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
 
+export TARGET_ENABLE_CHECKELF=true
+
 # If XML files don't have comments before the XML header, use this flag
 # Can still be used with broken XML files by using blob_fixup
 export TARGET_DISABLE_XML_FIXING=true
@@ -72,9 +74,17 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i "/SystemCamera = / s/1;/0;/g" "${2}"
             ;;
+        odm/lib64/libAlgoProcess.so)
+            [ "$2" = "" ] && return 0
+            sed -i "s/android.hardware.graphics.common-V3-ndk.so/android.hardware.graphics.common-V5-ndk.so/" "${2}"
+            ;;
         odm/lib64/libCOppLceTonemapAPI.so|odm/lib64/libCS.so|odm/lib64/libSuperRaw.so|odm/lib64/libYTCommon.so|odm/lib64/libyuv2.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF_0_17_2}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
+            ;;
+        odm/lib64/libextensionlayer.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF_0_17_2}" --replace-needed "libziparchive.so" "libziparchive_odm.so" "${2}"
             ;;
         product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
             [ "$2" = "" ] && return 0
@@ -84,7 +94,11 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
             ;;
-        vendor/bin/hw/android.hardware.security.keymint-service-qti)
+        system_ext/lib64/libwfdservice.so)
+            [ "$2" = "" ] && return 0
+            sed -i "s/android.media.audio.common.types-V2-cpp.so/android.media.audio.common.types-V3-cpp.so/" "${2}"
+            ;;
+        vendor/bin/hw/android.hardware.security.keymint-service-qti|vendor/lib64/libqtikeymint.so)
             [ "$2" = "" ] && return 0
             grep -q "android.hardware.security.rkp-V3-ndk.so" "${2}" || ${PATCHELF} --add-needed "android.hardware.security.rkp-V3-ndk.so" "${2}"
             ;;
