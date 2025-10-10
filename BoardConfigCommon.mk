@@ -81,7 +81,6 @@ BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 # Kernel
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
-    androidboot.load_modules_parallel=true \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3
 
@@ -184,7 +183,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security
-BOOT_SECURITY_PATCH := 2025-09-01
+BOOT_SECURITY_PATCH := 2025-10-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SEPolicy
